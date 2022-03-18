@@ -33,11 +33,7 @@ document.addEventListener('DOMContentLoaded',function(event){
         // text exists! start typewriter animation
        typeWriter(dataText[i], 0, function(){
          // after callback (and whole text has been animated), start next text
-         StartTextAnimation(i + 1);
-         var values1 = 1
-         var values2 = values1 +1
-         if (values2 == 4) {
-          
+         StartTextAnimation(i + 1);     
          }
        });
       }
