@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(event){
     // array with texts to type in typewriter
-    var dataText = [ 'Starting file: README.md from littlepig453...', 'hello'];
+    var dataText = [ 'Starting file: README.md from littlepig453...', 'hello', 'my name is littlepig453', 'bio: I do stuff', 'i created this type writer animation for a readme file alternative'];
     //var dataText = [ "12345", "12345", "12345", "12345"]; this is the format
     // type one text in the typwriter
     // keeps calling itself until the text is finished
