@@ -103,49 +103,52 @@ function buildTable() {
 	list.forEach((word, idx) => {
 		//if the gender is undefined, then it is not a word that we need to quiz on
 		if (word.gender != undefined) {
-			var tr = document.createElement("tr");
+			//if the type of noun is third declension
+			if (word.declension == 3) {
+				var tr = document.createElement("tr");
 
-			var td = document.createElement("td");
-			td.valign = "top";
-			var answer;
-			if (english == 'yes') {
-				td.innerText = word.latin;
-				//get gender as answer instead of meaning
-				answer = word.gender;
-			} else {
-				td.innerText = word.english;
-				//get gender as answer instead of meaning
-				answer = word.gender;
-			}
-			if (word.type != 'verb')
-				td.innerText += ` (${word.type})`;
+				var td = document.createElement("td");
+				td.valign = "top";
+				var answer;
+				if (english == 'yes') {
+					td.innerText = word.latin;
+					//get gender as answer instead of meaning
+					answer = word.gender;
+				} else {
+					td.innerText = word.english;
+					//get gender as answer instead of meaning
+					answer = word.gender;
+				}
+				if (word.type != 'verb')
+					td.innerText += ` (${word.type})`;
+					tr.appendChild(td);
+
+				td = document.createElement("td");
+				td.valign = "bottom";
 				tr.appendChild(td);
 
-			td = document.createElement("td");
-			td.valign = "bottom";
-			tr.appendChild(td);
+				var form = document.createElement("form");
+				form.autocomplete = false;
+				form.autocorrect = false;
+				form.spellcheck = false;
+				form.onsubmit = (() => { return checkAnswer(idx); });
+				td.appendChild(form);
 
-			var form = document.createElement("form");
-			form.autocomplete = false;
-			form.autocorrect = false;
-			form.spellcheck = false;
-			form.onsubmit = (() => { return checkAnswer(idx); });
-			td.appendChild(form);
+				var input = document.createElement("input");
+				input.name = answer;
+				input.id = `check${idx}`;
+				input.type = "text";
+				input.autocomplete = false;
+				input.autocorrect = false;
+				input.spellcheck = false;
+				form.appendChild(input);
 
-			var input = document.createElement("input");
-			input.name = answer;
-			input.id = `check${idx}`;
-			input.type = "text";
-			input.autocomplete = false;
-			input.autocorrect = false;
-			input.spellcheck = false;
-			form.appendChild(input);
+				var label = document.createElement("label");
+				label.id = `result${idx}`;
+				form.appendChild(label);
 
-			var label = document.createElement("label");
-			label.id = `result${idx}`;
-			form.appendChild(label);
-
-			vocabtable.appendChild(tr);
+				vocabtable.appendChild(tr);
+			};
 		};
 	});
 }
