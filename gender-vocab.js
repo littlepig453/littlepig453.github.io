@@ -119,10 +119,10 @@ function buildTable() {
 					//get gender as answer instead of meaning
 					answer = word.gender;
 				}
-				//we dont need this because they are all nouns
-				//if (word.type != 'verb')
+				if (word.type != 'verb')
+					//we dont need this because they are all nouns
 					//td.innerText += ` (${word.type})`;
-					//tr.appendChild(td);
+					tr.appendChild(td);
 
 				td = document.createElement("td");
 				td.valign = "bottom";
