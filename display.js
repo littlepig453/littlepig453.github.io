@@ -62,5 +62,23 @@ function buildTable() {
         displaytable.appendChild(tr);
     });
 }
-
+let alphabetized = false
+function alphabet() {
+	if (alphabetized == false) {
+		const table = document.querySelector('table');
+		let rows = Array.from(table.querySelectorAll('tr')); // convert rows to array
+		rows = rows.slice(1); //remove the top row (Chapter  Part of Speech  Latin  English)
+		rows.sort((a, b) => {
+			const valueA = a.children[2].textContent || a.children[2].innerText; // get value of 3rd td
+			const valueB = b.children[2].textContent || b.children[2].innerText; // get value of 3rd td
+			return valueA.localeCompare(valueB); // compare values alphabetically
+		});
+		rows.forEach(row => table.appendChild(row));
+		alphabetized = true
+		document.getElementById('alphabet_button').innerHTML = "Sort by chapter"; //change the value of the button
+	}
+	else {
+		window.location.reload(); //just reloads the pageto reset alphabetized value
+	}
+}
 addEventListener("load", () => GetVocab(buildTable));
