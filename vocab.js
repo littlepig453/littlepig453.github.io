@@ -132,9 +132,6 @@ function buildTable() {
 }
 
 function buildPage() {
-    if (english != 'no') {
-        document.getElementById('instr').hidden = true;
-    }
     if (start == end)
         document.getElementById('chapters').innerText = `Chapter ${start}`;
     else
