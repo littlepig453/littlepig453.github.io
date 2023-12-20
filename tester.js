@@ -8,7 +8,6 @@ function createChapterOptions(id, selected) {
         selector.appendChild(opt);
     }
 }
-
 function populateVocabList() {
     createChapterOptions("vocabstart");
     createChapterOptions("vocabend", 40);
@@ -17,5 +16,4 @@ function populateVocabList() {
 function populateAllLists() {
     populateVocabList();
 }
-
 addEventListener("load", populateAllLists);
