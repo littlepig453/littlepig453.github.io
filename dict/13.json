@@ -43,7 +43,7 @@
     "chapter": 13,
     "type": "pronoun",
     "latin": "sui",
-    "english": "himself, herself, itself, themselves",
+    "english": "one's self, himself, herself, itself, themselves",
     "notes": "reflexive"
   },
   {
@@ -62,7 +62,7 @@
     "chapter": 13,
     "type": "adjective",
     "latin": "suus, -a, -um",
-    "english": "third person reflexive pronoun, his own, her own, its own, their own",
+    "english": "one's own, his own, her own, its own, their own",
     "notes": "reflexive possessive"
   },
   {
