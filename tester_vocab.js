@@ -179,13 +179,15 @@ function areAllInputsDisabled() {
 	const nonQuizInputs = Array.from(allInputs).filter(input => input.value !== "Quiz"); //that one quiz button at the bottom of the page
 	return nonQuizInputs.every((input) => input.disabled);
 }
+var hasCompleted = false
 function testerButton() {
 	if (areAllInputsDisabled() == true) {
-		if (document.body.innerHTML.includes("Incorrect!") == false) {
+		if (document.body.innerHTML.includes("Incorrect!") == false && hasCompleted == false) {
 			if (start == end) {
 				let currentCookieValue = parseInt(getCookieValue(start)) + 1
 				watchCookies = false
 				watchElementValue = false
+				hasCompleted = true
 				document.cookie = `${start}=${currentCookieValue}`
 				location.reload(); //reload the page so you can do it again
 			}
@@ -193,6 +195,7 @@ function testerButton() {
 				let currentCookieValue = parseInt(getCookieValue(start + "to" + end)) + 1
 				watchCookies = false
 				watchElementValue = false
+				hasCompleted = true
 				document.cookie = `${start}to${end}=${currentCookieValue}`
 				location.reload(); //reload the page so you can do it again
 			}
