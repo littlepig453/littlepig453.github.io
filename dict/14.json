@@ -121,6 +121,14 @@
   },
   {
     "chapter": 14,
+    "type": "noun",
+    "latin": "vires, virium",
+    "english": "strength",
+    "gender": "f",
+    "declension": "3i"
+  },
+  {
+    "chapter": 14,
     "type": "preposition",
     "latin": "ab, a",
     "english": "away from, from; by",
